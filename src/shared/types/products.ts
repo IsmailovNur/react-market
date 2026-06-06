@@ -1,22 +1,25 @@
 export type ProductCategory =
   'fruits'
   | 'beverages'
-  | 'baker'
+  | 'bakery'
   | 'meat'
   | 'dairy';
 
 export interface IProduct {
+  type: ProductCategory
+  title: string
+  price: number
+  description?: string
+  picture?: string
+}
+
+export interface IProductWithId extends IProduct {
   id: string;
-  category: ProductCategory;
-  name: string;
-  price: number;
-  description?: string;
-  image?: string;
 }
 
 export interface ICategory {
   title: string;
-  id: string;
+  id: ProductCategory;
 }
 
 export const CATEGORIES: ICategory[] = [

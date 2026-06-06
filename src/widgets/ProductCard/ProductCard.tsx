@@ -2,21 +2,22 @@ import { type FC } from 'react';
 import { Card, Popconfirm, Space, Typography } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import type { IProduct } from "../../shared/types/products.ts";
+import type { IProductWithId } from "../../shared/types/products.ts";
 
 const {Meta} = Card;
 const {Text} = Typography;
 
 interface ProductCardProps {
-  product: IProduct;
+  product: IProductWithId;
   onDelete: (id: string) => void;
 }
 
 const ProductCard: FC<ProductCardProps> = ({product, onDelete}) => {
   const navigate = useNavigate();
+  console.log(product)
 
-  const imageSrc = product.image && product.image.trim() !== ''
-    ? product.image
+  const imageSrc = product.picture && product.picture.trim() !== ''
+    ? product.picture
     : 'https://placehold.co/300x200/1f1f1f/ffffff?text=No+Image';
 
   return (
@@ -24,14 +25,8 @@ const ProductCard: FC<ProductCardProps> = ({product, onDelete}) => {
       style={{background: '#1f1f1f', borderColor: '#303030'}}
       cover={
         <img
-          alt={product.name}
+          alt={product.title}
           src={imageSrc}
-          style={{
-            height: '180px',
-            objectFit: 'cover',
-            borderTopLeftRadius: '8px',
-            borderTopRightRadius: '8px'
-          }}
         />
       }
       actions={[
@@ -48,10 +43,10 @@ const ProductCard: FC<ProductCardProps> = ({product, onDelete}) => {
       ]}
     >
       <Meta
-        title={<span style={{color: '#fff'}}>{product.name}</span>}
+        title={<span>{product.title}</span>}
         description={
           <Space size={4} style={{width: '100%'}}>
-            <Text ellipsis style={{color: 'rgba(255,255,255,0.45)'}}>
+            <Text ellipsis style={{color: '#4e4c4c'}}>
               {product.description || 'No description provided'}
             </Text>
             <Text strong style={{color: '#ffec3d', fontSize: '16px'}}>

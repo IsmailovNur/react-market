@@ -9,27 +9,19 @@ import {
   Typography
 } from 'antd';
 import { SaveOutlined } from '@ant-design/icons';
-import { CATEGORIES } from "../../shared/types/products.ts";
+import { CATEGORIES, type IProduct } from "../../shared/types/products.ts";
 
 import "./ProductForm.css";
 
 const {Title} = Typography;
 const {TextArea} = Input;
 
-interface ProductFormValues {
-  type: string;
-  name: string;
-  description?: string;
-  price: number;
-  image?: string;
-}
-
 interface ProductFormProps {
   formTitle: string;
   submitText: string;
-  initialValues?: ProductFormValues;
+  initialValues?: IProduct;
   isSubmitting: boolean;
-  onFinish: (values: ProductFormValues) => void;
+  onFinish: (values: IProduct) => void;
 }
 
 const ProductForm: FC<ProductFormProps> = (props) => {
@@ -40,6 +32,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
     isSubmitting,
     onFinish,
   } = props;
+
   const [form] = Form.useForm();
 
   return (
@@ -109,7 +102,6 @@ const ProductForm: FC<ProductFormProps> = (props) => {
               {submitText}
             </Button>
           </Form.Item>
-
         </Form>
       </Card>
     </div>
