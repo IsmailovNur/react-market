@@ -1,13 +1,22 @@
 import axios from 'axios';
-import type { IProduct, IProductWithId } from "../types/products.ts";
+import type {
+  IProduct,
+  IProductWithId,
+  ProductCategory
+} from "../types/products.ts";
 
 const firebaseEndpoint = axios.create({
   baseURL: 'https://js-31-nurisma-default-rtdb.europe-west1.firebasedatabase.app/',
 });
 
 export const productsApi = {
-  getProducts: async (): Promise<IProductWithId[]> => {
-    const url = '/products.json';
+  getProducts: async (category?: ProductCategory): Promise<IProductWithId[]> => {
+    let url = '/products.json';
+
+    if (category) {
+      url += `?orderBy="type"&equalTo="${category}"`;
+    }
+
     const response = await firebaseEndpoint.get<Record<string, IProduct> | null>(url);
     const data = response.data;
     if (!data) return [];

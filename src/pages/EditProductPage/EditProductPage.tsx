@@ -10,7 +10,7 @@ import type { IProduct } from "../../shared/types/products.ts";
 import "./EditProductPage.css";
 
 const EditProductPage = () => {
-  const {id} = useParams<{ id: string }>(); // Типизируем параметры урла
+  const {id} = useParams<{ id: string }>();
   const navigate = useNavigate();
   const {message} = App.useApp();
 

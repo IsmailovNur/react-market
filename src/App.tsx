@@ -11,15 +11,14 @@ import EditProductPage from "./pages/EditProductPage/EditProductPage.tsx";
 
 function App() {
 
-
   return (
-
     <Layout className="App-wrapper">
       <AppHeader />
 
       <Content className="layout-content">
         <Routes>
           <Route path={AppRoutes.main} element={<HomePage />} />
+          <Route path={AppRoutes.category} element={<HomePage />} />
 
           <Route path={AppRoutes.addProduct} element={<AddProductPage />} />
           <Route path={AppRoutes.editProduct} element={<EditProductPage />} />
@@ -31,4 +30,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

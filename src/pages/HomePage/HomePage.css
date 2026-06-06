@@ -1,0 +1,37 @@
+.category-sidebar {
+  background: #1f1f1f;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid #303030;
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-list li {
+  margin-bottom: 14px;
+}
+
+.category-list li:last-child {
+  margin-bottom: 0;
+}
+
+.category-list a {
+  color: rgba(255, 255, 255, 0.65);
+  transition: color 0.3s, font-weight 0.3s;
+  font-size: 15px;
+  display: block;
+}
+
+.category-list a:hover {
+  color: #13c2c2;
+}
+
+.category-list a.active {
+  color: #13c2c2;
+  font-weight: 600;
+  position: relative;
+}

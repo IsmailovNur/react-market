@@ -4,6 +4,8 @@ import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import type { IProductWithId } from "../../shared/types/products.ts";
 
+import "./ProductCard.css";
+
 const {Meta} = Card;
 const {Text} = Typography;
 
@@ -25,6 +27,7 @@ const ProductCard: FC<ProductCardProps> = ({product, onDelete}) => {
       style={{background: '#1f1f1f', borderColor: '#303030'}}
       cover={
         <img
+          className="product-card-img"
           alt={product.title}
           src={imageSrc}
         />

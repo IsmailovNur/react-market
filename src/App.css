@@ -1,6 +1,14 @@
-.layout-content{
-  min-height: 85vh;
+.App-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #141414;
+}
+
+.layout-content {
+  flex: 1 0 auto;
+  width: 100%;
   max-width: 1230px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 40px 15px;
 }
