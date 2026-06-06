@@ -16,6 +16,18 @@ export const productsApi = {
     return Object.keys(data).map((key) => ({
       ...data[key],
     }));
+  },
+
+  createProduct: async (product: IProduct): Promise<void> => {
+    await firebaseEndpoint.post('/products.json', product);
+  },
+
+  updateProduct: async (id: string, product: IProduct): Promise<void> => {
+    await firebaseEndpoint.put(`/products/${id}.json`, product);
+  },
+
+  deleteProduct: async (id: string): Promise<void> => {
+    await firebaseEndpoint.delete(`/products/${id}.json`);
   }
 
 };

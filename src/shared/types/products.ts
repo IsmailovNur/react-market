@@ -13,3 +13,16 @@ export interface IProduct {
   description?: string;
   image?: string;
 }
+
+export interface ICategory {
+  title: string;
+  id: string;
+}
+
+export const CATEGORIES: ICategory[] = [
+  {title: 'Fruits', id: 'fruits'},
+  {title: 'Dairy', id: 'dairy'},
+  {title: 'Meat', id: 'meat'},
+  {title: 'Bakery', id: 'bakery'},
+  {title: 'Beverages', id: 'beverages'},
+];

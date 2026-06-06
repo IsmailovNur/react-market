@@ -1,8 +1,6 @@
 import { Layout } from "antd";
-import { AntDesignOutlined } from "@ant-design/icons";
-
 import "./AppHeader.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AppRoutes } from "../../shared/rounting/routes.ts";
 
 const {Header} = Layout;
@@ -10,9 +8,13 @@ const {Header} = Layout;
 const AppHeader = () => {
   return (
     <Header className="header">
-      <NavLink to={AppRoutes.main}><AntDesignOutlined className="header-logo" /></NavLink>
+      <Link to={AppRoutes.main}>
+        Mini-Market
+      </Link>
+
       <nav className="header-nav">
-        <NavLink to={AppRoutes.main} className="nav-item">Home</NavLink>
+        <NavLink to={AppRoutes.main} className="nav-item">Products</NavLink>
+        <NavLink to={AppRoutes.addProduct} className="nav-item">Add new product</NavLink>
       </nav>
     </Header>
   );
