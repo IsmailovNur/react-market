@@ -47,7 +47,7 @@ const EditProductPage = () => {
     try {
       await productsApi.updateProduct(id, values);
       message.success('Product updated successfully!');
-      navigate(AppRoutes.main);
+      navigate(`/category/${values.type}`);
     } catch (e) {
       console.error(e);
       message.error('Failed to save changes.');
@@ -60,15 +60,13 @@ const EditProductPage = () => {
 
   return (
     <div className="edit-product-page">
-      <div className="edit-product-form">
-        <ProductForm
-          formTitle="Edit Product"
-          submitText=" Save Changes"
-          initialValues={productData || undefined}
-          isSubmitting={isSubmitting}
-          onFinish={handleFinish}
-        />
-      </div>
+      <ProductForm
+        formTitle="Edit Product"
+        submitText=" Save Changes"
+        initialValues={productData || undefined}
+        isSubmitting={isSubmitting}
+        onFinish={handleFinish}
+      />
     </div>
   )
     ;

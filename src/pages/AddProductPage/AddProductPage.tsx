@@ -4,7 +4,6 @@ import { productsApi } from "../../shared/api/api.ts";
 import ProductForm from "../../widgets/ProductForm/ProductForm.tsx";
 import "./AddProductPage.css";
 import { useNavigate } from "react-router-dom";
-import { AppRoutes } from "../../shared/rounting/routes.ts";
 import type { IProduct } from "../../shared/types/products.ts";
 
 const AddProductPage = () => {
@@ -17,7 +16,7 @@ const AddProductPage = () => {
     try {
       await productsApi.createProduct(values);
       message.success('New product arrived!');
-      navigate(AppRoutes.main);
+      navigate(`/category/${values.type}`);
     } catch (e) {
       console.error(e);
       message.error('API Error. Field submission failed.');
@@ -28,14 +27,12 @@ const AddProductPage = () => {
 
   return (
     <div className="add-product-page">
-      <div className="add-product-form">
-        <ProductForm
-          formTitle="Add New Product"
-          submitText="Create Product"
-          isSubmitting={isSubmitting}
-          onFinish={handleFinish}
-        />
-      </div>
+      <ProductForm
+        formTitle="Add New Product"
+        submitText="Create Product"
+        isSubmitting={isSubmitting}
+        onFinish={handleFinish}
+      />
     </div>
   );
 };

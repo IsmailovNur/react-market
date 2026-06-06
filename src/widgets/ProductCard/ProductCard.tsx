@@ -48,7 +48,7 @@ const ProductCard: FC<ProductCardProps> = ({product, onDelete}) => {
       <Meta
         title={<span>{product.title}</span>}
         description={
-          <Space size={4} style={{width: '100%'}}>
+          <Space className="product-card-bottom"  >
             <Text ellipsis style={{color: '#4e4c4c'}}>
               {product.description || 'No description provided'}
             </Text>

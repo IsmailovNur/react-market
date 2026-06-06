@@ -74,7 +74,6 @@ const ProductsPage = () => {
           </ul>
         </div>
       </Col>
-
       <Col xs={24} md={18}>
         <Title level={2}>
           {pageTitle}

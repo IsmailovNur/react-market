@@ -8,7 +8,7 @@ const {Header} = Layout;
 const AppHeader = () => {
   return (
     <Header className="header">
-      <Link to={AppRoutes.main}>
+      <Link className="header-logo" to={AppRoutes.main}>
         Mini-Market
       </Link>
 

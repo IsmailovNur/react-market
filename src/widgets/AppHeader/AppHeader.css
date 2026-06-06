@@ -1,6 +1,7 @@
 .header {
   height: auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   background: #1f1f1f;
@@ -10,14 +11,10 @@
     justify-content: center;
   }
 }
-
-.header-logo {
-  font-size: 40px;
-  display: flex;
-  align-items: center;
-  @media screen and (max-width: 500px) {
-    display: none;
-  }
+.header-logo{
+  text-transform: uppercase;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
 .header-nav {
